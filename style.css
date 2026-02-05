@@ -817,3 +817,281 @@ footer {
 .contact-link i {
     font-size: 1.2rem;
 }
+/* ==================== */
+/* Стили для Услуг и цен */
+/* ==================== */
+
+.services {
+    padding: 100px 0;
+    background: rgba(5, 5, 16, 0.3);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.pricing-card {
+    padding: 30px;
+    transition: all 0.4s;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 243, 255, 0.15);
+}
+
+.pricing-popular {
+    border: 2px solid var(--neon-blue);
+    transform: scale(1.05);
+}
+
+.pricing-popular:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    color: black;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.3);
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pricing-header h3 {
+    font-size: 1.8rem;
+    color: var(--neon-blue);
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 10px 0;
+}
+
+.price-note {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.pricing-features {
+    flex-grow: 1;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.pricing-features li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ccc;
+}
+
+.pricing-features .fa-check-circle {
+    color: #00ff88;
+}
+
+.pricing-features .fa-times-circle {
+    color: #ff4757;
+}
+
+.feature-disabled {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.pricing-footer {
+    text-align: center;
+    margin-top: auto;
+}
+
+.timeline {
+    color: var(--neon-blue);
+    margin-bottom: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* ==================== */
+/* Стили для Отзывов */
+/* ==================== */
+
+.testimonials {
+    padding: 100px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.testimonial-item {
+    padding: 30px;
+    transition: all 0.3s;
+}
+
+.testimonial-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 243, 255, 0.1);
+}
+
+.testimonial-content {
+    font-style: italic;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.testimonial-content:before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 3rem;
+    color: rgba(0, 243, 255, 0.3);
+    font-family: Georgia, serif;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.author-info h4 {
+    color: var(--neon-blue);
+    margin-bottom: 5px;
+}
+
+.author-info p {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* ==================== */
+/* Стили для слогана */
+/* ==================== */
+
+.hero-slogan {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 30px auto;
+    color: #ccc;
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+/* ==================== */
+/* Адаптивность */
+/* ==================== */
+
+@media (max-width: 992px) {
+    .pricing-popular {
+        transform: scale(1);
+    }
+    
+    .pricing-popular:hover {
+        transform: translateY(-10px) scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-slogan {
+        font-size: 1.2rem;
+        margin: 20px auto;
+    }
+    
+    .price {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-card {
+        padding: 20px;
+    }
+    
+    .testimonial-item {
+        padding: 20px;
+    }
+}
+/* Добавь в конец style.css */
+.old-price {
+    font-size: 1.2rem;
+    color: #ff4757;
+    text-decoration: line-through;
+    margin: 5px 0;
+}
+
+.first-order {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin: 15px auto;
+    display: inline-block;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.pricing-info h4 {
+    color: var(--neon-blue);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pricing-info p {
+    color: #ccc;
+    line-height: 1.6;
+}
