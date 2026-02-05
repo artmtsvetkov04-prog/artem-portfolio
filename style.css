@@ -1095,3 +1095,140 @@ footer {
     color: #ccc;
     line-height: 1.6;
 }
+/* ==================== */
+/* Стили для блока Предоплата и Гарантия */
+/* ==================== */
+
+.payment-guarantee {
+    padding: 100px 0;
+    background: rgba(10, 10, 20, 0.5);
+}
+
+.conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.condition-card {
+    padding: 35px;
+    transition: all 0.4s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.condition-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 243, 255, 0.15);
+}
+
+.condition-icon {
+    font-size: 2.5rem;
+    color: var(--neon-blue);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.condition-card h3 {
+    color: var(--neon-blue);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.condition-list {
+    list-style: none;
+    margin: 20px 0;
+    flex-grow: 1;
+}
+
+.condition-list li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+.condition-list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.condition-note {
+    background: rgba(0, 243, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 3px solid var(--neon-blue);
+    color: #aaa;
+    font-size: 0.95rem;
+    margin-top: 20px;
+}
+
+.condition-note i {
+    color: var(--neon-blue);
+    margin-right: 8px;
+}
+
+.guarantee-notice {
+    background: rgba(255, 71, 87, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 25px;
+    border: 1px solid rgba(255, 71, 87, 0.2);
+}
+
+.guarantee-notice h4 {
+    color: #ff4757;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.guarantee-notice p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.conditions-footer {
+    margin-top: 50px;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.conditions-footer h4 {
+    color: var(--neon-blue);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.conditions-footer p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .conditions-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .condition-card {
+        padding: 25px;
+    }
+    
+    .payment-guarantee {
+        padding: 70px 0;
+    }
+}
