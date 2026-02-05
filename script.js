@@ -512,7 +512,7 @@ function initEmailButton() {
 
 function openEmailClient() {
     // Основные данные
-    const recipient = 'artm.tsvetkov.04@bk.ru';
+    const recipient = 'artm_ts1@bk.ru';
     const subject = 'Предложение по проекту';
     const body = 'Здравствуйте, Артём!\n\nХочу обсудить с вами проект...\n\nС уважением, [Ваше имя]';
     
