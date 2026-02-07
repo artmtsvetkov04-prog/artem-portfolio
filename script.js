@@ -225,51 +225,63 @@ function initHeaderEffects() {
 }
 
 // ============================================
-// МОДУЛЬ 6: МОБИЛЬНОЕ МЕНЮ
+// МОДУЛЬ 6: МОБИЛЬНОЕ МЕНЮ (ИСПРАВЛЕННАЯ ВЕРСИЯ)
 // ============================================
 function initMobileMenu() {
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     
-    // Если нет мобильного меню, выходим
     if (!menuBtn || !navLinks) return;
     
-    // Функция переключения меню
     function toggleMenu() {
-        const isVisible = navLinks.style.display === 'flex';
-        navLinks.style.display = isVisible ? 'none' : 'flex';
-        
-        // Меняем иконку
+        navLinks.classList.toggle('show');
         const icon = menuBtn.querySelector('i');
         if (icon) {
-            icon.className = isVisible ? 'fas fa-bars' : 'fas fa-times';
+            icon.className = navLinks.classList.contains('show') ? 'fas fa-times' : 'fas fa-bars';
         }
+        
+        // Блокируем скролл при открытом меню
+        document.body.style.overflow = navLinks.classList.contains('show') ? 'hidden' : '';
     }
     
-    // Назначаем обработчик
     menuBtn.addEventListener('click', toggleMenu);
     
     // Закрываем меню при клике на ссылку
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            navLinks.style.display = 'none';
+            navLinks.classList.remove('show');
             const icon = menuBtn.querySelector('i');
             if (icon) icon.className = 'fas fa-bars';
+            document.body.style.overflow = '';
         });
     });
     
-    // Адаптация меню при изменении размера окна
-    function handleResize() {
-        if (window.innerWidth > 768) {
-            navLinks.style.display = 'flex';
-        } else {
-            navLinks.style.display = 'none';
+    // Закрываем меню при клике вне его
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('show') && 
+            !navLinks.contains(e.target) && 
+            !menuBtn.contains(e.target)) {
+            navLinks.classList.remove('show');
             const icon = menuBtn.querySelector('i');
             if (icon) icon.className = 'fas fa-bars';
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Адаптация при изменении размера окна
+    function handleResize() {
+        if (window.innerWidth > 768) {
+            navLinks.classList.remove('show');
+            navLinks.style.display = 'flex';
+            const icon = menuBtn.querySelector('i');
+            if (icon) icon.className = 'fas fa-bars';
+            document.body.style.overflow = '';
+        } else {
+            navLinks.style.display = navLinks.classList.contains('show') ? 'flex' : 'none';
         }
     }
     
-    // Инициализируем начальное состояние
+    // Инициализация
     handleResize();
     window.addEventListener('resize', handleResize);
     
