@@ -1,369 +1,60 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARTEM TS | Веб-разработчик и дизайнер</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="bg-grid"></div>
-    <div class="bg-glow"></div>
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ARTEM TS | Сайты и дизайн для бизнеса</title><meta name="description" content="Портфолио Артёма Цветкова: сайты, логотипы и карточки товаров для бизнеса. Современная подача, адаптивная верстка и понятный процесс работы.">
+  <meta property="og:title" content="ARTEM TS — сайты и дизайн для бизнеса">
+  <meta property="og:description" content="Лендинги, сайты-визитки, логотипы и карточки товаров с сильной подачей.">
+  <meta property="og:image" content="images/Photo.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body><div class="bg-grid"></div><div class="bg-glow"></div><div class="noise"></div>
+<a class="floating-contact" href="https://t.me/ARTEM_TS1" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram"><i class="fab fa-telegram"></i><span>Написать</span></a>
+<header><div class="container header-container"><a class="logo" href="index.html"><span class="logo-mark"><i class="fas fa-sparkles"></i></span><span>ARTEM.TS</span></a><nav class="nav-links"><a href="index.html" class="active">Главная</a><a href="websites.html">Сайты</a><a href="logos.html">Логотипы</a><a href="product-cards.html">Карточки товаров</a><a href="#contact">Контакты</a></nav><div class="header-actions"><a href="#contact" class="btn btn-secondary">Обсудить проект</a><button class="mobile-menu-btn" aria-label="Открыть меню"><i class="fas fa-bars"></i></button></div></div></header><main>
 
-    <header id="header">
-        <div class="container header-container">
-            <a class="logo" href="index.html">ARTEM.TS</a>
-            <nav class="nav-links">
-                <a href="index.html" class="active">Главная</a>
-                <a href="websites.html">Сайты</a>
-                <a href="logos.html">Логотипы</a>
-                <a href="product-cards.html">Карточки товаров</a>
-                <a href="#contact">Контакты</a>
-            </nav>
-            <button class="mobile-menu-btn" aria-label="Открыть меню">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
+<section class="hero hero-clean" id="home">
+  <div class="container hero-clean-grid">
+    <div class="hero-clean-copy">
+      <span class="kicker fade-in">Портфолио Артёма Цветкова</span>
+      <h1 class="hero-clean-title fade-in">Современные сайты и визуал<br>для бизнеса</h1>
+      <p class="hero-clean-text fade-in">Делаю лендинги, сайты-визитки, логотипы и карточки товаров. Чистая подача, понятная структура и аккуратный визуал без перегруза.</p>
 
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <span class="hero-subtitle fade-in">АРТЁМ ЦВЕТКОВ</span>
-            <h1 class="fade-in">Сайты и дизайн для бизнеса</h1>
-            <div class="location fade-in">
-                <i class="fas fa-laptop-code"></i> HTML / CSS / JavaScript • Лендинги • Логотипы • Карточки товаров
-            </div>
-            <div class="accent-line"></div>
-            <p class="hero-slogan fade-in">Помогаю малому бизнесу, экспертам и локальным брендам получить сильную упаковку: сайт, логотип и визуалы для продаж.</p>
-            <div class="rotating-text fade-in">
-                <span>Я — </span>
-                <span class="rotated" id="rotating-text"></span>
-            </div>
-            <p class="hero-description fade-in">Работаю в формате понятного фриланса: от обсуждения задачи до готового результата. Вы получаете чистую HTML-верстку, понятную структуру, адаптивность и визуал, который можно показывать клиентам уже сейчас.</p>
-            <div class="cta-buttons fade-in">
-                <a href="websites.html" class="btn btn-primary"><i class="fas fa-globe"></i> Смотреть сайты</a>
-                <a href="logos.html" class="btn btn-secondary"><i class="fas fa-pen-nib"></i> Смотреть дизайн</a>
-            </div>
-        </div>
-    </section>
+      <div class="hero-clean-tags fade-in">
+        <span class="tag">HTML / CSS / JavaScript</span>
+        <span class="tag">Лендинги</span>
+        <span class="tag">Логотипы</span>
+        <span class="tag">Карточки товаров</span>
+      </div>
 
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title fade-in">Обо мне</h2>
-            <div class="accent-line"></div>
-            <div class="about-content">
-                <div class="about-text card fade-in">
-                    <p>Привет. Я Артём — начинающий фрилансер, который развивает сразу два направления: <strong>разработка сайтов</strong> и <strong>дизайн для упаковки бизнеса</strong>.</p>
-                    <p>Моя сильная сторона — делать не просто красиво, а понятно для клиента. Я собираю сайты-визитки и лендинги на HTML, CSS и JavaScript, а также создаю логотипы и карточки товаров, которые помогают бренду выглядеть сильнее и продавать увереннее.</p>
-                    <p>Мне важно, чтобы заказчик понимал весь процесс. Поэтому я работаю поэтапно: обсуждаем задачу, фиксируем структуру, собираем визуал, показываю промежуточный результат и довожу проект до аккуратной готовой версии.</p>
-                    <p>Сейчас я активно нарабатываю кейсы, поэтому даю хорошее соотношение цены и качества. Это удобно для малого бизнеса, экспертов, мастеров, студий, локальных брендов и продавцов маркетплейсов.</p>
-                </div>
-                <div class="skills-grid fade-in">
-                    <div class="skill-item card">
-                        <i class="fas fa-code"></i>
-                        <h3>Сайты</h3>
-                        <p>Сайты-визитки, лендинги, адаптивная HTML-верстка</p>
-                    </div>
-                    <div class="skill-item card">
-                        <i class="fas fa-palette"></i>
-                        <h3>Логотипы</h3>
-                        <p>Минималистичные и фирменные решения для бренда</p>
-                    </div>
-                    <div class="skill-item card">
-                        <i class="fas fa-box-open"></i>
-                        <h3>Карточки</h3>
-                        <p>Карточки товаров для маркетплейсов и соцсетей</p>
-                    </div>
-                    <div class="skill-item card">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h3>Адаптивность</h3>
-                        <p>Сайты корректно выглядят на телефоне и на ПК</p>
-                    </div>
-                    <div class="skill-item card">
-                        <i class="fas fa-bolt"></i>
-                        <h3>Быстрый старт</h3>
-                        <p>Понятный процесс без сложной бюрократии</p>
-                    </div>
-                    <div class="skill-item card">
-                        <i class="fas fa-comments"></i>
-                        <h3>Связь</h3>
-                        <p>Показываю этапы работы и учитываю правки</p>
-                    </div>
-                </div>
-            </div>
+      <div class="hero-clean-actions fade-in">
+        <a href="#portfolio-directions" class="btn btn-primary"><i class="fas fa-layer-group"></i> Смотреть работы</a>
+        <a href="#contact" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Обсудить проект</a>
+      </div>
 
-            <div class="stats-grid fade-in">
-                <div class="stat-card card">
-                    <strong>3</strong>
-                    <span>направления услуг</span>
-                </div>
-                <div class="stat-card card">
-                    <strong>HTML</strong>
-                    <span>чистая ручная верстка</span>
-                </div>
-                <div class="stat-card card">
-                    <strong>7 дней</strong>
-                    <span>средний срок простого проекта</span>
-                </div>
-                <div class="stat-card card">
-                    <strong>1 исполнитель</strong>
-                    <span>без потери времени на команду</span>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="hero-clean-stats fade-in">
+        <article class="hero-clean-stat card">
+          <strong>3 направления</strong>
+          <span>сайты, логотипы, карточки товаров</span>
+        </article>
+        <article class="hero-clean-stat card">
+          <strong>Адаптивная верстка</strong>
+          <span>аккуратно выглядит на ПК и телефоне</span>
+        </article>
+        <article class="hero-clean-stat card">
+          <strong>Быстрая связь</strong>
+          <span>проще всего через Telegram</span>
+        </article>
+      </div>
+    </div>
 
-    <section class="portfolio" id="directions">
-        <div class="container">
-            <h2 class="section-title fade-in">Основные направления</h2>
-            <div class="accent-line"></div>
-            <p class="section-subtitle fade-in">Я разделил услуги на отдельные страницы, чтобы клиенту было проще смотреть кейсы, цены и процесс работы по каждому направлению.</p>
+    <div class="hero-clean-visual fade-in">
+      <div class="hero-preview-card card">
+        <div class="hero-preview-badge">Главный кейс</div>
+        <img src="images/Photo.png" alt="Превью портфолио сайтов">
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="category-grid">
-                <article class="showcase-card card fade-in">
-                    <div class="showcase-image">
-                        <img src="images/aura.jpg" alt="Пример сайта-визитки и лендинга">
-                    </div>
-                    <h3>Сайты</h3>
-                    <p>Сайты-визитки, лендинги и небольшие проекты на HTML. На отдельной странице собраны кейсы, этапы работы, цены и формат сотрудничества.</p>
-                    <div class="tag-row">
-                        <span class="tag">HTML</span>
-                        <span class="tag">Адаптивность</span>
-                        <span class="tag">Лендинги</span>
-                    </div>
-                    <div class="service-block">
-                        <a href="websites.html" class="btn btn-primary">Перейти к сайтам</a>
-                    </div>
-                </article>
-
-                <article class="showcase-card card fade-in">
-                    <div class="showcase-image">
-                        <img src="images/logo-showcase.png" alt="Примеры логотипов">
-                    </div>
-                    <h3>Логотипы</h3>
-                    <p>Создание логотипов для бизнеса и брендов: tech, fashion, coffee и другие ниши. На странице — примеры, подход к работе и тарифы.</p>
-                    <div class="tag-row">
-                        <span class="tag">Брендинг</span>
-                        <span class="tag">Минимализм</span>
-                        <span class="tag">Фирменный стиль</span>
-                    </div>
-                    <div class="service-block">
-                        <a href="logos.html" class="btn btn-primary">Перейти к логотипам</a>
-                    </div>
-                </article>
-
-                <article class="showcase-card card fade-in">
-                    <div class="showcase-image">
-                        <img src="images/product-massager-card.png" alt="Карточки товаров">
-                    </div>
-                    <h3>Карточки товаров</h3>
-                    <p>Карточки товаров для маркетплейсов, рекламы и соцсетей. Упор на структуру, читаемость, преимущества товара и продающую подачу.</p>
-                    <div class="tag-row">
-                        <span class="tag">Ozon / WB</span>
-                        <span class="tag">Инфографика</span>
-                        <span class="tag">Визуал</span>
-                    </div>
-                    <div class="service-block">
-                        <a href="product-cards.html" class="btn btn-primary">Перейти к карточкам</a>
-                    </div>
-                </article>
-
-                <article class="info-panel card fade-in">
-                    <h3>Почему такой формат удобен</h3>
-                    <p>На главной странице клиент быстро понимает, кто ты и чем занимаешься. А дальше переходит в нужное направление без перегруза лишней информацией.</p>
-                    <ul>
-                        <li>Отдельная страница под каждый тип услуги</li>
-                        <li>Удобно продвигать по ссылке в Instagram и Telegram</li>
-                        <li>Проще добавлять новые кейсы и менять цены</li>
-                        <li>Структура подходит под дальнейший рост портфолио</li>
-                    </ul>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="process" id="process">
-        <div class="container">
-            <h2 class="section-title fade-in">Как я работаю</h2>
-            <div class="accent-line"></div>
-            <div class="process-steps">
-                <div class="process-step card fade-in">
-                    <div class="step-number">1</div>
-                    <h3>Бриф</h3>
-                    <p>Уточняем, что именно нужно: сайт, логотип или карточки товара. Разбираем нишу, цель и примеры, которые тебе нравятся.</p>
-                </div>
-                <div class="process-step card fade-in">
-                    <div class="step-number">2</div>
-                    <h3>Структура</h3>
-                    <p>Фиксируем наполнение проекта: блоки сайта, подачу логотипа или состав карточек. На этом этапе уже видно направление работы.</p>
-                </div>
-                <div class="process-step card fade-in">
-                    <div class="step-number">3</div>
-                    <h3>Реализация</h3>
-                    <p>Собираю визуал и показываю промежуточный результат. После согласования дорабатываю детали и проверяю аккуратность.</p>
-                </div>
-                <div class="process-step card fade-in">
-                    <div class="step-number">4</div>
-                    <h3>Финал</h3>
-                    <p>Передаю готовые материалы, даю инструкции по использованию и остаюсь на связи по небольшим вопросам после сдачи.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title fade-in">Что можно заказать</h2>
-            <div class="accent-line"></div>
-            <p class="section-subtitle fade-in">Основные услуги я вынес в отдельные страницы, но здесь можно быстро понять, чем я полезен и в каком формате работаю.</p>
-
-            <div class="service-cards">
-                <article class="service-card card fade-in">
-                    <i class="fas fa-window-maximize"></i>
-                    <h3>Сайт-визитка</h3>
-                    <p>Небольшой многостраничный или одностраничный сайт для эксперта, мастера, студии, артиста или локального бизнеса.</p>
-                    <div class="service-note">Подходит, когда нужно красиво и понятно рассказать о себе, услугах и способе связи.</div>
-                </article>
-
-                <article class="service-card card fade-in">
-                    <i class="fas fa-signature"></i>
-                    <h3>Логотип</h3>
-                    <p>Минималистичный логотип для бизнеса, бренда одежды, кофейни, студии, digital-проекта и других направлений.</p>
-                    <div class="service-note">Подходит, если хочешь получить узнаваемый визуальный образ и аккуратную подачу на мокапах.</div>
-                </article>
-
-                <article class="service-card card fade-in">
-                    <i class="fas fa-image"></i>
-                    <h3>Карточки товаров</h3>
-                    <p>Слайды для маркетплейсов и соцсетей с упором на преимущества товара, структуру, читаемость и визуальный порядок.</p>
-                    <div class="service-note">Подходит продавцам, которым нужны аккуратные карточки под запуск товара или обновление визуала.</div>
-                </article>
-
-                <article class="service-card card fade-in">
-                    <i class="fas fa-layer-group"></i>
-                    <h3>Комбо-упаковка</h3>
-                    <p>Можно собрать набор: логотип + сайт-визитка, либо логотип + карточки товаров, чтобы бренд выглядел цельно.</p>
-                    <div class="service-note">Удобно для новых проектов, когда нужно сразу упаковать бизнес в одном стиле.</div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title fade-in">Отзывы и место для ваших кейсов</h2>
-            <div class="accent-line"></div>
-            <p class="section-subtitle fade-in">Сейчас я активно собираю портфолио и первые отзывы. Поэтому для новых клиентов держу удобный вход по цене.</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-item card fade-in" data-action="contact">
-                    <div class="testimonial-content">
-                        <p>«Здесь может быть кейс о том, как сайт помог презентовать услуги и собрать первые обращения.»</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Ваш проект</h4>
-                        <p>Сайт-визитка или лендинг</p>
-                    </div>
-                </div>
-                <div class="testimonial-item card fade-in" data-action="contact">
-                    <div class="testimonial-content">
-                        <p>«Здесь может появиться отзыв о логотипе, который помог бренду выглядеть профессиональнее.»</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Ваш бренд</h4>
-                        <p>Логотип / фирменная подача</p>
-                    </div>
-                </div>
-                <div class="testimonial-item card fade-in" data-action="contact">
-                    <div class="testimonial-content">
-                        <p>«Здесь может появиться отзыв о карточках товара, которые сделали подачу товара понятнее и чище.»</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Ваш магазин</h4>
-                        <p>Карточки товара / инфографика</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="payment-guarantee" id="payment">
-        <div class="container">
-            <h2 class="section-title fade-in">Условия работы</h2>
-            <div class="accent-line"></div>
-            <div class="conditions-grid">
-                <div class="condition-card card fade-in">
-                    <div class="condition-icon"><i class="fas fa-handshake"></i></div>
-                    <h3>Понятный процесс</h3>
-                    <ul class="condition-list">
-                        <li>Сначала обсуждаем задачу и собираем вводные.</li>
-                        <li>Фиксируем формат, цену и срок.</li>
-                        <li>Показываю этап работы перед финальной сдачей.</li>
-                    </ul>
-                </div>
-                <div class="condition-card card fade-in">
-                    <div class="condition-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Поддержка после сдачи</h3>
-                    <ul class="condition-list">
-                        <li>Помогаю с базовыми вопросами по готовому проекту.</li>
-                        <li>По сайту подсказываю, как заменить контент и ссылки.</li>
-                        <li>По дизайну объясняю, где и как использовать материалы.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Связаться со мной</h2>
-            <div class="accent-line"></div>
-            <p class="section-subtitle fade-in">Напиши, что тебе нужно: сайт, логотип, карточки товара или комплект услуг. Отвечу по срокам и стоимости.</p>
-            <div class="contact-cta card fade-in">
-                <h3><i class="fas fa-bolt"></i> Быстрее всего отвечаю в Telegram</h3>
-                <p>Можешь сразу написать нишу, что именно нужно, примеры и желаемый срок. Так я быстрее сориентирую по цене.</p>
-                <div class="cta-buttons">
-                    <a href="https://t.me/ARTEM_TS1" target="_blank" class="btn btn-primary"><i class="fab fa-telegram"></i> Telegram</a>
-                    <button class="btn btn-secondary email-btn"><i class="fas fa-envelope"></i> Почта</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a class="logo" href="index.html">ARTEM.TS</a>
-                    <p>Сайты, логотипы и карточки товаров для малого бизнеса, экспертов и новых брендов.</p>
-                </div>
-                <div class="footer-nav">
-                    <h4>Разделы</h4>
-                    <div class="footer-nav-links">
-                        <a href="index.html">Главная</a>
-                        <a href="websites.html">Сайты</a>
-                        <a href="logos.html">Логотипы</a>
-                        <a href="product-cards.html">Карточки товаров</a>
-                    </div>
-                </div>
-                <div class="footer-contact">
-                    <h4>Контакты</h4>
-                    <p><i class="fab fa-telegram"></i> @ARTEM_TS1</p>
-                    <p><i class="fas fa-envelope"></i> artm_ts1@bk.ru</p>
-                    <div class="footer-social">
-                        <a href="https://t.me/ARTEM_TS1" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
-                        <a href="mailto:artm_ts1@bk.ru" class="social-icon"><i class="fas fa-envelope"></i></a>
-                        <a href="https://github.com/artmtsvetkov04-prog" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© <span id="current-year"></span> Артём Цветков. Сайты и дизайн для бизнеса.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<section class="trust-strip"><div class="container"><div class="trust-strip-inner card fade-in"><div><strong>Что ты получаешь:</strong> современную подачу, аккуратную структуру, адаптивность и понятный процесс работы.</div><div class="trust-items"><span><i class="fas fa-check"></i> Чистая верстка</span><span><i class="fas fa-check"></i> Визуал под нишу</span><span><i class="fas fa-check"></i> Удобные правки</span></div></div></div></section>
+<section id="portfolio-directions"><div class="container"><div class="section-head"><span class="kicker fade-in">Что я делаю</span><h2 class="section-title fade-in">Три направления упаковки</h2><p class="section-subtitle fade-in">Можно заказать отдельно или собрать цельную систему: сайт, логотип и визуалы для карточек товаров.</p><div class="accent-line"></div></div><div class="direction-grid"><article class="direction-card card fade-in"><div class="direction-icon"><i class="fas fa-globe"></i></div><h3>Сайты</h3><p>Лендинги и сайты-визитки с современным первым экраном, понятной структурой и адаптивной версткой.</p><ul class="direction-list"><li>HTML / CSS / JavaScript</li><li>Под ключ или по готовому ТЗ</li><li>Ссылки на реальные проекты</li></ul><a href="websites.html" class="direction-link">Перейти к сайтам <i class="fas fa-arrow-right"></i></a></article><article class="direction-card card fade-in"><div class="direction-icon"><i class="fas fa-pen-nib"></i></div><h3>Логотипы</h3><p>Логотипы для брендов и малого бизнеса: от clean digital до более характерной нишевой подачи.</p><ul class="direction-list"><li>Подбор направления под нишу</li><li>Современная подача</li><li>Удобно сочетать с сайтом</li></ul><a href="logos.html" class="direction-link">Посмотреть логотипы <i class="fas fa-arrow-right"></i></a></article><article class="direction-card card fade-in"><div class="direction-icon"><i class="fas fa-box-open"></i></div><h3>Карточки товаров</h3><p>Инфографика для WB, Ozon и рекламы: структура, акценты на преимуществах и несколько слайдов.</p><ul class="direction-list"><li>Слайды под преимущества</li><li>Подача под маркетплейсы</li><li>Улучшение восприятия товара</li></ul><a href="product-cards.html" class="direction-link">Открыть карточки <i class="fas fa-arrow-right"></i></a></article></div></div></section>
+<section class="pricing-section"><div class="container"><div class="section-head"><span class="kicker fade-in">Цены</span><h2 class="section-title fade-in">Понятный старт по бюджету</h2><p class="section-subtitle fade-in">Это не жёсткий прайс, а ориентир, чтобы тебе было проще понять, с каким запросом обращаться.</p><div class="accent-line"></div></div><div class="pricing-grid"><article class="pricing-card card fade-in"><h3>Лендинг</h3><div class="price">от 8 000 ₽</div><ul class="pricing-features"><li>1 длинная страница</li><li>Адаптивность</li><li>Базовые анимации</li></ul></article><article class="pricing-card card fade-in pricing-popular"><div class="popular-badge">Чаще выбирают</div><h3>Сайт-визитка</h3><div class="price">от 12 000 ₽</div><ul class="pricing-features"><li>Несколько смысловых блоков</li><li>Контакты и CTA</li><li>Сильнее подача бренда</li></ul></article><article class="pricing-card card fade-in"><h3>Логотип</h3><div class="price">от 3 500 ₽</div><ul class="pricing-features"><li>Направление под нишу</li><li>Чистая подача</li><li>Файлы для использования</li></ul></article><article class="pricing-card card fade-in"><h3>Карточки товара</h3><div class="price">от 2 500 ₽</div><ul class="pricing-features"><li>Слайды под преимущества</li><li>Инфографика</li><li>Подача под маркетплейсы</li></ul></article></div></div></section>
+<section class="included-section"><div class="container"><div class="section-head"><span class="kicker fade-in">Что входит в работу</span><h2 class="section-title fade-in">Не просто красиво, а удобно в использовании</h2><p class="section-subtitle fade-in">Этот блок сразу снимает часть вопросов до старта.</p><div class="accent-line"></div></div><div class="included-grid"><article class="included-card card fade-in"><i class="fas fa-mobile-screen"></i><h3>Адаптивность</h3><p>Сайт нормально выглядит на телефоне, планшете и ПК.</p></article><article class="included-card card fade-in"><i class="fas fa-magnifying-glass"></i><h3>Базовая SEO-структура</h3><p>Title, description, понятные заголовки и чистая структура страницы.</p></article><article class="included-card card fade-in"><i class="fas fa-link"></i><h3>Подключение ссылок</h3><p>Кнопки, переходы, внешние ссылки на проекты и контакты.</p></article><article class="included-card card fade-in"><i class="fas fa-pen-ruler"></i><h3>Правки и финальная передача</h3><p>Доработки по согласованию и аккуратная передача результата.</p></article></div></div></section>
+<section class="why-trust-section"><div class="container"><div class="section-head"><span class="kicker fade-in">Почему мне можно доверять</span><h2 class="section-title fade-in">Даже если ты ищешь не агентство, а сильного исполнителя</h2><p class="section-subtitle fade-in">Я компенсирую отсутствие лишней бюрократии аккуратной работой и понятным процессом.</p><div class="accent-line"></div></div><div class="trust-grid"><article class="trust-card card fade-in"><i class="fas fa-check-circle"></i><h3>Аккуратная работа</h3><p>Слежу за отступами, логикой блоков и тем, как проект считывается целиком.</p></article><article class="trust-card card fade-in"><i class="fas fa-bolt"></i><h3>Быстрый отклик</h3><p>Не люблю тянуть коммуникацию. Быстро отвечаю и двигаю проект по этапам.</p></article><article class="trust-card card fade-in"><i class="fas fa-repeat"></i><h3>Возможность доработок</h3><p>Проект не бросается на полпути — его можно довести до более сильной версии.</p></article><article class="trust-card card fade-in"><i class="fas fa-bullseye"></i><h3>Работа под задачу</h3><p>Собираю решение под конкретную нишу, а не вставляю одну и ту же форму всем подряд.</p></article></div></div></section>
+<section id="about"><div class="container"><div class="section-head"><span class="kicker fade-in">Личный блок</span><h2 class="section-title fade-in">Почему я вообще этим занимаюсь</h2><p class="section-subtitle fade-in">Мне нравится превращать сырую идею в подачу, которую можно уверенно показать людям.</p><div class="accent-line"></div></div><div class="personal-grid"><div class="personal-photo card fade-in"><img src="images/Photo.png" alt="Работы Артёма Цветкова"></div><article class="about-copy card fade-in"><p>Я люблю момент, когда у проекта появляется лицо: понятный первый экран, сильные акценты, аккуратная сетка и ощущение, что всё собрано не случайно. Именно за это я люблю сайты и визуальную упаковку.</p><p>Мне близок подход без лишнего пафоса: сделать так, чтобы результат действительно работал на восприятие бизнеса, а не просто выглядел “модно”.</p><p class="personal-quote">Хочу, чтобы мои проекты выглядели так, будто их можно с уверенностью показать уже сегодня — без ощущения “сырости”.</p></article></div></div></section>
+<section id="contact"><div class="container"><div class="contact-box contact-box-upgraded card fade-in"><div class="contact-copy"><span class="kicker">Связаться со мной</span><h2 class="section-title">Можешь написать сразу по делу</h2><p>Нужен сайт, логотип, карточки товара или полный комплект? Напиши нишу, цель, желаемый срок и примеры того, что нравится.</p><div class="contact-inline"><a href="https://t.me/ARTEM_TS1" target="_blank" class="btn btn-primary"><i class="fab fa-telegram"></i> Telegram</a><button class="btn btn-secondary email-btn"><i class="fas fa-envelope"></i> Почта</button></div></div><div class="contact-side"><div class="contact-detail card"><span>Telegram</span><strong>@ARTEM_TS1</strong></div><div class="contact-detail card"><span>Email</span><strong>artm_ts1@bk.ru</strong></div><div class="contact-detail card"><span>GitHub</span><strong>artmtsvetkov04-prog</strong></div></div></div><div class="lead-form-wrap card fade-in"><div class="lead-form-copy"><span class="kicker">Форма заявки</span><h3>Удобно оставить заявку без переписки</h3><p>Форма откроет письмо с уже заполненной структурой — останется только отправить.</p></div><form class="lead-form" data-mail-form><div class="form-grid"><label><span>Имя</span><input type="text" name="name" placeholder="Как к вам обращаться"></label><label><span>Что нужно</span><select name="service"><option>Лендинг</option><option>Сайт-визитка</option><option>Логотип</option><option>Карточки товаров</option><option>Комплект услуг</option></select></label></div><label><span>Ссылка / ниша</span><input type="text" name="niche" placeholder="Ниша, ссылка на проект или бренд"></label><label><span>Сообщение</span><textarea name="message" rows="5" placeholder="Опишите задачу, срок и пожелания"></textarea></label><button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Подготовить заявку</button></form></div></div></section></main><footer><div class="container"><div class="footer-grid"><div class="footer-box card"><h4>ARTEM.TS</h4><p>Сайты, логотипы и карточки товаров для малого бизнеса, экспертов и новых брендов.</p><p class="footer-slogan">Делаю визуал, который помогает выглядеть увереннее.</p></div><div class="footer-box card"><h4>Разделы</h4><div class="footer-links"><a href="index.html">Главная</a><a href="websites.html">Сайты</a><a href="logos.html">Логотипы</a><a href="product-cards.html">Карточки товаров</a></div></div><div class="footer-box card"><h4>Контакты</h4><p><i class="fab fa-telegram"></i> @ARTEM_TS1</p><p><i class="fas fa-envelope"></i> artm_ts1@bk.ru</p><div class="footer-social"><a href="https://t.me/ARTEM_TS1" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a><a href="mailto:artm_ts1@bk.ru" class="social-icon"><i class="fas fa-envelope"></i></a><a href="https://github.com/artmtsvetkov04-prog" target="_blank" class="social-icon"><i class="fab fa-github"></i></a></div></div></div><div class="footer-bottom">© <span id="current-year"></span> Артём Цветков. Сайты и дизайн для бизнеса.</div></div></footer><script src="script.js"></script></body></html>

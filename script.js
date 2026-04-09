@@ -1,190 +1,133 @@
 document.addEventListener('DOMContentLoaded', () => {
-    try {
-        initSmoothNavigation();
-        initHeaderEffects();
-        initMobileMenu();
-        initScrollAnimations();
-        initRotatingText();
-        initCurrentYear();
-        initEmailButton();
-        initTestimonialClick();
-        initImageErrorHandling();
-    } catch (error) {
-        console.error('Ошибка инициализации:', error);
-    }
+  initSmoothNavigation();
+  initHeaderEffects();
+  initMobileMenu();
+  initScrollAnimations();
+  initRotatingText();
+  initCurrentYear();
+  initEmailButton();
+  initTestimonialClick();
+  initImageErrorHandling();
+  initTiltCards();
+  initProductSliders();
+  initFAQ();
+  initParallax();
+  initFilters();
+  initMailForms();
 });
+function initSmoothNavigation(){document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){const href=this.getAttribute('href');if(!href||href==='#')return;const target=document.querySelector(href);if(!target)return;e.preventDefault();const header=document.querySelector('header');const offset=header?header.offsetHeight:0;window.scrollTo({top:target.offsetTop-offset,behavior:'smooth'});closeMobileMenu();history.pushState(null,'',href);});});}
+function initHeaderEffects(){const header=document.querySelector('header');if(!header)return;const update=()=>header.classList.toggle('scrolled',window.scrollY>20);update();window.addEventListener('scroll',update);}
+function initMobileMenu(){const menuBtn=document.querySelector('.mobile-menu-btn');const navLinks=document.querySelector('.nav-links');if(!menuBtn||!navLinks)return;menuBtn.addEventListener('click',()=>{navLinks.classList.toggle('show');document.body.classList.toggle('menu-open',navLinks.classList.contains('show'));menuBtn.innerHTML=navLinks.classList.contains('show')?'<i class="fas fa-times"></i>':'<i class="fas fa-bars"></i>';});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMobileMenu));window.addEventListener('resize',()=>{if(window.innerWidth>920)closeMobileMenu();});}
+function closeMobileMenu(){const navLinks=document.querySelector('.nav-links');const menuBtn=document.querySelector('.mobile-menu-btn');if(!navLinks||!menuBtn)return;navLinks.classList.remove('show');document.body.classList.remove('menu-open');menuBtn.innerHTML='<i class="fas fa-bars"></i>';}
+function initScrollAnimations(){const elements=document.querySelectorAll('.fade-in');if(!elements.length)return;const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,index)=>{if(entry.isIntersecting){entry.target.style.transitionDelay=`${Math.min(index*0.05,0.25)}s`;entry.target.classList.add('visible');}});},{threshold:0.12});elements.forEach(el=>observer.observe(el));}
+function initRotatingText(){const element=document.getElementById('rotating-text');if(!element)return;const phrases=['веб-разработчик','делаю сайты-визитки и лендинги','создаю логотипы для брендов','оформляю карточки товаров для WB / Ozon'];let phraseIndex=0;let charIndex=0;let isDeleting=false;function loop(){const current=phrases[phraseIndex];if(isDeleting){charIndex--;element.textContent=current.slice(0,charIndex);if(charIndex===0){isDeleting=false;phraseIndex=(phraseIndex+1)%phrases.length;}}else{charIndex++;element.textContent=current.slice(0,charIndex);if(charIndex===current.length){isDeleting=true;setTimeout(loop,1200);return;}}setTimeout(loop,isDeleting?45:82);}loop();}
+function initCurrentYear(){const yearEl=document.getElementById('current-year');if(yearEl)yearEl.textContent=new Date().getFullYear();}
+function openEmailClient(){const recipient='artm_ts1@bk.ru';const subject='Обсуждение проекта';const body='Здравствуйте, Артём!%0D%0A%0D%0AХочу обсудить проект.%0D%0AНиша:%0D%0AЧто нужно:%0D%0AСрок:%0D%0A%0D%0AС уважением,';window.location.href=`mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${body}`;}
+function initEmailButton(){document.querySelectorAll('.email-btn').forEach(btn=>btn.addEventListener('click',openEmailClient));}
+function initTestimonialClick(){document.querySelectorAll('[data-action="contact"]').forEach(item=>{item.addEventListener('click',()=>{const contact=document.querySelector('#contact');if(!contact)return;const header=document.querySelector('header');const offset=header?header.offsetHeight:0;window.scrollTo({top:contact.offsetTop-offset,behavior:'smooth'});});});}
+function initImageErrorHandling(){document.querySelectorAll('img').forEach(img=>{img.addEventListener('error',function(){this.style.display='none';const fallback=document.createElement('div');fallback.style.cssText='width:100%;height:100%;min-height:220px;display:flex;align-items:center;justify-content:center;background:#121a28;color:#bfe9ff;border:1px dashed rgba(255,255,255,.12);border-radius:20px;text-align:center;padding:20px;';fallback.textContent=`Не найден файл: ${this.getAttribute('src')}`;this.parentNode.appendChild(fallback);});});}
+function initTiltCards(){const cards=document.querySelectorAll('.direction-card, .showcase-card, .pricing-card, .service-card');cards.forEach(card=>{card.addEventListener('mousemove',(e)=>{if(window.innerWidth<921)return;const rect=card.getBoundingClientRect();const x=e.clientX-rect.left;const y=e.clientY-rect.top;const rotateY=((x/rect.width)-0.5)*8;const rotateX=((y/rect.height)-0.5)*-8;card.style.transform=`perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;});card.addEventListener('mouseleave',()=>{card.style.transform='';});});}
+window.PortfolioSite={openEmailClient,closeMobileMenu};
 
-function initSmoothNavigation() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (!href || href === '#') return;
-            const target = document.querySelector(href);
-            if (!target) return;
-
-            e.preventDefault();
-            const header = document.querySelector('header');
-            const offset = header ? header.offsetHeight : 0;
-            window.scrollTo({
-                top: target.offsetTop - offset,
-                behavior: 'smooth'
-            });
-
-            closeMobileMenu();
-            history.pushState(null, '', href);
-        });
+function initProductSliders(){
+  document.querySelectorAll('[data-slider]').forEach(slider=>{
+    const images=[...slider.querySelectorAll('.slider-track img')];
+    const prev=slider.querySelector('.slider-arrow.prev');
+    const next=slider.querySelector('.slider-arrow.next');
+    const dotsWrap=slider.querySelector('.slider-dots');
+    if(!images.length)return;
+    let index=0;
+    const setSlide=(newIndex)=>{
+      index=(newIndex+images.length)%images.length;
+      images.forEach((img,i)=>img.classList.toggle('active',i===index));
+      [...dotsWrap.children].forEach((dot,i)=>dot.classList.toggle('active',i===index));
+    };
+    images.forEach((_,i)=>{
+      const dot=document.createElement('button');
+      dot.className='slider-dot'+(i===0?' active':'');
+      dot.setAttribute('aria-label',`Перейти к слайду ${i+1}`);
+      dot.addEventListener('click',()=>setSlide(i));
+      dotsWrap.appendChild(dot);
     });
-}
-
-function initHeaderEffects() {
-    const header = document.querySelector('header');
-    if (!header) return;
-
-    const update = () => header.classList.toggle('scrolled', window.scrollY > 30);
-    update();
-    window.addEventListener('scroll', update);
-}
-
-function initMobileMenu() {
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if (!menuBtn || !navLinks) return;
-
-    menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-        document.body.classList.toggle('menu-open', navLinks.classList.contains('show'));
-        menuBtn.innerHTML = navLinks.classList.contains('show')
-            ? '<i class="fas fa-times"></i>'
-            : '<i class="fas fa-bars"></i>';
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            closeMobileMenu();
-        });
-    });
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 920) {
-            closeMobileMenu();
-        }
-    });
-}
-
-function closeMobileMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    if (!navLinks || !menuBtn) return;
-    navLinks.classList.remove('show');
-    document.body.classList.remove('menu-open');
-    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-}
-
-function initScrollAnimations() {
-    const elements = document.querySelectorAll('.fade-in');
-    if (!elements.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.12 });
-
-    elements.forEach(el => observer.observe(el));
-}
-
-function initRotatingText() {
-    const element = document.getElementById('rotating-text');
-    if (!element) return;
-
-    const phrases = [
-        'Веб-разработчик',
-        'Создаю сайты-визитки и лендинги',
-        'Делаю логотипы и карточки товаров',
-        'Помогаю малому бизнесу выделиться'
-    ];
-
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeLoop() {
-        const current = phrases[phraseIndex];
-
-        if (isDeleting) {
-            charIndex--;
-            element.textContent = current.slice(0, charIndex);
-            if (charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-            }
-        } else {
-            charIndex++;
-            element.textContent = current.slice(0, charIndex);
-            if (charIndex === current.length) {
-                isDeleting = true;
-                setTimeout(typeLoop, 1100);
-                return;
-            }
-        }
-
-        setTimeout(typeLoop, isDeleting ? 45 : 90);
+    if(images.length===1){
+      if(prev)prev.style.display='none';
+      if(next)next.style.display='none';
+      return;
     }
-
-    typeLoop();
+    prev?.addEventListener('click',()=>setSlide(index-1));
+    next?.addEventListener('click',()=>setSlide(index+1));
+  });
 }
 
-function initCurrentYear() {
-    const yearEl = document.getElementById('current-year');
-    if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
-    }
-}
 
-function openEmailClient() {
-    const recipient = 'artm_ts1@bk.ru';
-    const subject = 'Обсуждение проекта';
-    const body = 'Здравствуйте, Артём!%0D%0A%0D%0AХочу обсудить проект.%0D%0AНиша:%0D%0AЧто нужно:%0D%0AСрок:%0D%0A%0D%0AС уважением,';
-    window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${body}`;
-}
-
-function initEmailButton() {
-    document.querySelectorAll('.email-btn').forEach(btn => {
-        btn.addEventListener('click', openEmailClient);
+function initFAQ(){
+  document.querySelectorAll('.faq-question').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(openItem=>{
+        if(openItem !== item) openItem.classList.remove('open');
+      });
+      item.classList.toggle('open', !isOpen);
     });
+  });
 }
 
-function initTestimonialClick() {
-    document.querySelectorAll('[data-action="contact"]').forEach(item => {
-        item.addEventListener('click', () => {
-            const contact = document.querySelector('#contact');
-            if (contact) {
-                const header = document.querySelector('header');
-                const offset = header ? header.offsetHeight : 0;
-                window.scrollTo({
-                    top: contact.offsetTop - offset,
-                    behavior: 'smooth'
-                });
-            }
-        });
+
+function initParallax(){
+  if(window.innerWidth < 921) return;
+  document.querySelectorAll('[data-parallax-wrap]').forEach(wrap=>{
+    wrap.addEventListener('mousemove', e=>{
+      const rect = wrap.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      wrap.querySelectorAll('.parallax-layer').forEach(layer=>{
+        const strength = Number(layer.dataset.parallax || 12);
+        layer.style.transform = `translate(${x*strength}px, ${y*strength}px)`;
+      });
     });
-}
-
-function initImageErrorHandling() {
-    document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('error', function () {
-            this.style.display = 'none';
-            const fallback = document.createElement('div');
-            fallback.style.cssText = 'width:100%;height:100%;min-height:220px;display:flex;align-items:center;justify-content:center;background:#1f1f1f;color:#00ff9d;border-radius:16px;font-weight:600;text-align:center;padding:20px;';
-            fallback.textContent = `Не найден файл: ${this.getAttribute('src')}`;
-            this.parentNode.appendChild(fallback);
-        });
+    wrap.addEventListener('mouseleave', ()=>{
+      wrap.querySelectorAll('.parallax-layer').forEach(layer=>layer.style.transform='');
     });
+  });
 }
 
-window.PortfolioSite = {
-    openEmailClient,
-    closeMobileMenu
-};
+function initFilters(){
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const group = btn.dataset.filterGroup;
+      const value = btn.dataset.filter;
+      document.querySelectorAll(`.filter-btn[data-filter-group="${group}"]`).forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll(`[data-group="${group}"]`).forEach(card=>{
+        const category = card.dataset.category;
+        const visible = value === 'all' || category === value;
+        card.classList.toggle('hidden-by-filter', !visible);
+      });
+    });
+  });
+}
+
+function initMailForms(){
+  document.querySelectorAll('[data-mail-form]').forEach(form=>{
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = data.get('name') || '';
+      const service = data.get('service') || '';
+      const niche = data.get('niche') || '';
+      const message = data.get('message') || '';
+      const subject = `Заявка с сайта: ${service}`;
+      const body = `Здравствуйте!
+
+Имя: ${name}
+Что нужно: ${service}
+Ссылка / ниша: ${niche}
+
+Сообщение:
+${message}
+`;
+      window.location.href = `mailto:artm_ts1@bk.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  });
+}
