@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
   initParallax();
   initFilters();
+  initServicePickers();
   initMailForms();
 });
 function initSmoothNavigation(){document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){const href=this.getAttribute('href');if(!href||href==='#')return;const target=document.querySelector(href);if(!target)return;e.preventDefault();const header=document.querySelector('header');const offset=header?header.offsetHeight:0;window.scrollTo({top:target.offsetTop-offset,behavior:'smooth'});closeMobileMenu();history.pushState(null,'',href);});});}
@@ -108,26 +109,60 @@ function initFilters(){
   });
 }
 
+
+function initServicePickers(){
+  document.querySelectorAll('[data-service-picker]').forEach(picker=>{
+    const hidden = picker.querySelector('input[type="hidden"]');
+    const buttons = picker.querySelectorAll('.service-option');
+    buttons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        buttons.forEach(item=>item.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        if(hidden) hidden.value = btn.dataset.value || btn.textContent.trim();
+      });
+    });
+  });
+}
+
 function initMailForms(){
   document.querySelectorAll('[data-mail-form]').forEach(form=>{
-    form.addEventListener('submit', (e)=>{
+    form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       const data = new FormData(form);
-      const name = data.get('name') || '';
-      const service = data.get('service') || '';
-      const niche = data.get('niche') || '';
-      const message = data.get('message') || '';
-      const subject = `Заявка с сайта: ${service}`;
-      const body = `Здравствуйте!
+      const name = (data.get('name') || '').toString().trim();
+      const service = (data.get('service') || '').toString().trim();
+      const niche = (data.get('niche') || '').toString().trim();
+      const message = (data.get('message') || '').toString().trim();
 
-Имя: ${name}
-Что нужно: ${service}
-Ссылка / ниша: ${niche}
+      const tgText = `Новая заявка с сайта%0A%0AИмя: ${name || '-'}%0AЧто нужно: ${service || '-'}%0AСсылка / ниша: ${niche || '-'}%0A%0AСообщение:%0A${message || '-'}`;
+      const plainText = `Новая заявка с сайта
+
+Имя: ${name || '-'}
+Что нужно: ${service || '-'}
+Ссылка / ниша: ${niche || '-'}
 
 Сообщение:
-${message}
-`;
-      window.location.href = `mailto:artm_ts1@bk.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+${message || '-'}`;
+
+      try{
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(plainText);
+        }
+      }catch(err){}
+
+      const deepLink = `tg://resolve?domain=ARTEM_TS1&text=${tgText}`;
+      const fallback = `https://t.me/ARTEM_TS1`;
+
+      const notice = document.createElement('div');
+      notice.className = 'form-notice';
+      notice.textContent = 'Текст заявки скопирован. Сейчас откроется Telegram — просто вставь сообщение и отправь.';
+      form.appendChild(notice);
+
+      setTimeout(()=>{ notice.remove(); }, 5000);
+
+      // try Telegram app first
+      window.location.href = deepLink;
+      setTimeout(()=>{ window.open(fallback, '_blank'); }, 700);
     });
   });
 }
